@@ -1,0 +1,180 @@
+<div class="container mt-2">
+  <div class="row">
+    <div class="col">
+      <h1 class="display-4">Product</h1>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-header">
+          <h4>HIA-ITA-00036-001</h4>
+        </div>
+        <div class="card-body">
+          <form #form="ngForm" autocomplete="off">
+            <div class="form-group">
+              <label for="name">Nome prodotto <sup>*</sup></label>
+              <input type="text"
+                     [ngClass]="{ 'is-invalid' : name.invalid && name.touched, 'form-control': true }"
+                     id="name"
+                     required
+                     [(ngModel)]="model.name"
+                     name="name"
+                     #name="ngModel">
+              <div class="invalid-feedback" [hidden]="!(name.invalid && name.touched)">
+                This fiels is required
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="name_1">Nome commerciale #1</label>
+              <input type="text"
+                     [ngClass]="{ 'is-invalid' : name_1.invalid && name_1.touched, 'form-control': true }"
+                     id="name_1"
+                     [(ngModel)]="model.name_1"
+                     name="name_1"
+                     #name_1="ngModel">
+              <div class="invalid-feedback" [hidden]="!(name_1.invalid && name_1.touched)">
+                This fiels is required
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="name_2">Nome commerciale #2</label>
+              <input type="text"
+                     [ngClass]="{ 'is-invalid' : name_2.invalid && name_2.touched, 'form-control': true }"
+                     id="name_2"
+                     [(ngModel)]="model.name_2"
+                     name="name_2"
+                     #name_2="ngModel">
+              <div class="invalid-feedback" [hidden]="!(name_2.invalid && name_2.touched)">
+                This fiels is required
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="brand">Brand <sup>*</sup></label>
+              <input type="text"
+                     [ngClass]="{ 'is-invalid' : brand.invalid && brand.touched, 'form-control': true }"
+                     id="brand"
+                     [(ngModel)]="model.brand"
+                     required
+                     name="brand"
+                     #brand="ngModel">
+              <div class="invalid-feedback" [hidden]="!(brand.invalid && brand.touched)">
+                This fiels is required
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="category">Categoria di appartenenza <sup>*</sup></label>
+              <select type="text"
+                      [ngClass]="{ 'is-invalid' : category.invalid && category.touched, 'form-control': true }"
+                      id="category"
+                      [(ngModel)]="model.category"
+                      required
+                      name="category"
+                      #category="ngModel">
+                <option *ngFor="let category of categories" [value]="category.id">{{category.name}}</option>
+              </select>
+              <div class="invalid-feedback" [hidden]="!(category.invalid && category.touched)">
+                This fiels is required
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary" [disabled]="form.invalid">
+              <ion-icon name="save-outline"></ion-icon>
+              Salva il prodotto
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header">
+          <h4>Produttore</h4>
+        </div>
+        <div class="card-body">
+          <form #formProduttore="ngForm" autocomplete="off">
+            <div class="form-group">
+              <label for="produttore_name">Produttore <sup>*</sup></label>
+              <input type="text"
+                     [ngClass]="{ 'is-invalid' : produttore_name.invalid && produttore_name.touched, 'form-control': true }"
+                     id="produttore_name"
+                     required
+                     [(ngModel)]="model.produttore.name"
+                     name="produttore_name"
+                     #produttore_name="ngModel">
+              <div class="invalid-feedback" [hidden]="!(produttore_name.invalid && produttore_name.touched)">
+                This fiels is required
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="produttore_indirizzo">Indirizzo <sup>*</sup></label>
+              <input type="text"
+                     [ngClass]="{ 'is-invalid' : produttore_indirizzo.invalid && produttore_indirizzo.touched, 'form-control': true }"
+                     id="produttore_indirizzo"
+                     required
+                     [(ngModel)]="model.produttore.indirizzo"
+                     name="produttore_indirizzo"
+                     #produttore_indirizzo="ngModel">
+              <div class="invalid-feedback" [hidden]="!(produttore_indirizzo.invalid && produttore_indirizzo.touched)">
+                This fiels is required
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary" [disabled]="formProduttore.invalid">
+              <ion-icon name="save-outline"></ion-icon>
+              Salva il produttore
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div class="mt-2"></div>
+
+      <div class="card">
+        <div class="card-header">
+          <h4>Fornitore</h4>
+        </div>
+        <div class="card-body">
+          <form #formFornitore="ngForm" autocomplete="off">
+            <div class="form-group">
+              <label for="fornitore_name">Fornitore <sup>*</sup></label>
+              <input type="text"
+                     [ngClass]="{ 'is-invalid' : fornitore_name.invalid && fornitore_name.touched, 'form-control': true }"
+                     id="fornitore_name"
+                     required
+                     [(ngModel)]="model.fornitore.name"
+                     name="fornitore_name"
+                     #fornitore_name="ngModel">
+              <div class="invalid-feedback" [hidden]="!(fornitore_name.invalid && fornitore_name.touched)">
+                This fiels is required
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="fornitore_indirizzo">Indirizzo <sup>*</sup></label>
+              <input type="text"
+                     [ngClass]="{ 'is-invalid' : fornitore_indirizzo.invalid && fornitore_indirizzo.touched, 'form-control': true }"
+                     id="fornitore_indirizzo"
+                     required
+                     [(ngModel)]="model.fornitore.indirizzo"
+                     name="fornitore_indirizzo"
+                     #fornitore_indirizzo="ngModel">
+              <div class="invalid-feedback" [hidden]="!(fornitore_indirizzo.invalid && fornitore_indirizzo.touched)">
+                This fiels is required
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary" [disabled]="formFornitore.invalid">
+              <ion-icon name="save-outline"></ion-icon>
+              Salva il produttore
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
